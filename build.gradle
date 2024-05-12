@@ -1,0 +1,69 @@
+plugins {
+    id "java"
+}
+
+base {
+    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+    compileJava.options.encoding = compileTestJava.options.encoding = javadoc.options.encoding = "UTF-8"
+
+    group = project.maven_group ?: rootProject.maven_group
+    archivesName = project.maven_name ?: rootProject.maven_name
+    version = project.maven_version ?: rootProject.maven_version
+}
+
+configurations {
+    include
+
+    implementation.extendsFrom include
+    api.extendsFrom include
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "Sonatype Snapshots"
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+    maven {
+        name = "Jitpack"
+        url = "https://jitpack.io"
+    }
+    maven {
+        name = "ViaVersion"
+        url "https://repo.viaversion.com"
+    }
+    maven {
+        name = "lucko"
+        url = "https://repo.lucko.me"
+    }
+}
+
+dependencies {
+    implementation "net.raphimc:ViaProxy:3.2.1"
+
+    include "com.github.AlexProgrammerDE.spark:spark-common:2ba922a171"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("viaproxy.yml") {
+        expand "version": project.version
+    }
+}
+
+jar {
+    dependsOn configurations.include
+    from {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        configurations.include.collect {
+            zipTree(it)
+        }
+    } {
+        exclude "META-INF/*.RSA", "META-INF/*.SF", "META-INF/*.DSA"
+    }
+
+    from("LICENSE") {
+        rename { "${it}_${project.name ?: rootProject.name}" }
+    }
+}

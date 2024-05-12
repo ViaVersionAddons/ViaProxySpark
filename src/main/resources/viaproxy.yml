@@ -1,0 +1,5 @@
+name: "SparkPlugin"
+version: "${version}"
+author: "RK_01 and lucko"
+main: "net.raphimc.sparkplugin.ViaProxySparkPlugin"
+min-version: "3.2.1"
