@@ -25,16 +25,21 @@ repositories {
         url = "https://oss.sonatype.org/content/repositories/snapshots"
     }
     maven {
-        name = "Jitpack"
-        url = "https://jitpack.io"
-    }
-    maven {
         name = "ViaVersion"
-        url "https://repo.viaversion.com"
+        url = "https://repo.viaversion.com"
     }
     maven {
         name = "lucko"
         url = "https://repo.lucko.me"
+    }
+    maven {
+        name = "Jitpack"
+        url = "https://jitpack.io"
+
+        content {
+            includeGroup "com.github.AlexProgrammerDE.spark"
+            includeGroup "com.github.jvm-profiling-tools"
+        }
     }
 }
 
