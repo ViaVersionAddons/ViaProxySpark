@@ -44,7 +44,7 @@ repositories {
 }
 
 dependencies {
-    implementation "net.raphimc:ViaProxy:3.2.1"
+    implementation "net.raphimc:ViaProxy:3.3.5"
 
     include "com.github.AlexProgrammerDE.spark:spark-common:2ba922a171"
 }
