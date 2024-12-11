@@ -33,21 +33,12 @@ repositories {
         name = "lucko"
         url = "https://repo.lucko.me"
     }
-    maven {
-        name = "Jitpack"
-        url = "https://jitpack.io"
-
-        content {
-            includeGroup "com.github.AlexProgrammerDE.spark"
-            includeGroup "com.github.jvm-profiling-tools"
-        }
-    }
 }
 
 dependencies {
     implementation "net.raphimc:ViaProxy:3.3.6"
 
-    include "com.github.AlexProgrammerDE.spark:spark-common:2ba922a171"
+    include "me.lucko:spark-common:1.10.119-SNAPSHOT"
 }
 
 processResources {

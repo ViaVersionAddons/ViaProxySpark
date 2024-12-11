@@ -33,6 +33,11 @@ public class ViaProxyPlatformInfo implements PlatformInfo {
     }
 
     @Override
+    public String getBrand() {
+        return "ViaProxy";
+    }
+
+    @Override
     public String getVersion() {
         return ViaProxy.VERSION;
     }

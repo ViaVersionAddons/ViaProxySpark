@@ -96,6 +96,19 @@ public class ViaProxySparkPlugin extends ViaProxyPlugin implements SparkPlugin {
     }
 
     @Override
+    public void log(final Level level, final String msg, Throwable throwable) {
+        if (level == Level.INFO) {
+            LOGGER.info(msg, throwable);
+        } else if (level == Level.WARNING) {
+            LOGGER.warn(msg, throwable);
+        } else if (level == Level.SEVERE) {
+            LOGGER.error(msg, throwable);
+        } else {
+            throw new IllegalArgumentException(level.getName());
+        }
+    }
+
+    @Override
     public PlatformInfo getPlatformInfo() {
         return new ViaProxyPlatformInfo();
     }
