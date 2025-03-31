@@ -17,6 +17,7 @@
  */
 package net.raphimc.sparkplugin;
 
+import com.viaversion.vialoader.commands.UserCommandSender;
 import com.viaversion.viaversion.api.Via;
 import me.lucko.spark.common.SparkPlatform;
 import me.lucko.spark.common.SparkPlugin;
@@ -33,7 +34,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.stream.Stream;
 
@@ -74,7 +74,7 @@ public class ViaProxySparkPlugin extends ViaProxyPlugin implements SparkPlugin {
 
     @Override
     public Stream<ViaProxyCommandSender> getCommandSenders() {
-        return Arrays.stream(Via.getPlatform().getOnlinePlayers()).map(ViaProxyCommandSender::new);
+        return Via.getManager().getConnectionManager().getClientConnections().values().stream().map(UserCommandSender::new).map(ViaProxyCommandSender::new);
     }
 
     @Override

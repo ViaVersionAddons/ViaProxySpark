@@ -2,7 +2,7 @@
 [ViaProxy](https://github.com/RaphiMC/ViaProxy) plugin which implements the [spark](https://github.com/lucko/spark) profiler.
 
 ## Installation and Usage
-1. Download the latest version from [GitHub Actions](https://github.com/ViaVersionAddons/ViaProxySpark/actions/workflows/build.yml).
+1. Download the latest stable release from [GitHub Releases](https://github.com/ViaVersionAddons/ViaProxySpark/releases/latest) or the latest dev build from [GitHub Actions](https://github.com/ViaVersionAddons/ViaProxySpark/actions/workflows/build.yml).
 2. Put the jar file into the plugins folder of ViaProxy
 3. Run ViaProxy. You should now be able to run spark commands in the console.
 
