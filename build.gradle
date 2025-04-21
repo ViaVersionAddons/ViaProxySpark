@@ -38,7 +38,7 @@ repositories {
 dependencies {
     implementation "net.raphimc:ViaProxy:3.4.1"
 
-    include "me.lucko:spark-common:1.10.119-SNAPSHOT"
+    include "me.lucko:spark-common:1.10.134-SNAPSHOT"
 }
 
 processResources {
