@@ -17,8 +17,8 @@
  */
 package net.raphimc.sparkplugin;
 
-import com.viaversion.vialoader.commands.UserCommandSender;
 import com.viaversion.viaversion.api.Via;
+import com.viaversion.viaversion.api.command.UserConnectionViaCommandSender;
 import me.lucko.spark.common.SparkPlatform;
 import me.lucko.spark.common.SparkPlugin;
 import me.lucko.spark.common.platform.PlatformInfo;
@@ -74,7 +74,7 @@ public class ViaProxySparkPlugin extends ViaProxyPlugin implements SparkPlugin {
 
     @Override
     public Stream<ViaProxyCommandSender> getCommandSenders() {
-        return Via.getManager().getConnectionManager().getClientConnections().values().stream().map(UserCommandSender::new).map(ViaProxyCommandSender::new);
+        return Via.getManager().getConnectionManager().getClientConnections().values().stream().map(UserConnectionViaCommandSender::new).map(ViaProxyCommandSender::new);
     }
 
     @Override
