@@ -56,7 +56,9 @@ public class ViaProxySparkPlugin extends ViaProxyPlugin implements SparkPlugin {
 
     @EventHandler
     public void onConsoleCommand(final ConsoleCommandEvent event) {
-        if (!event.getCommand().equals(this.getCommandName())) return;
+        if (!event.getCommand().equals(this.getCommandName())) {
+            return;
+        }
         event.setCancelled(true);
 
         this.platform.executeCommand(new ViaProxyCommandSender(new ConsoleCommandSender()), event.getArgs());
@@ -96,7 +98,7 @@ public class ViaProxySparkPlugin extends ViaProxyPlugin implements SparkPlugin {
     }
 
     @Override
-    public void log(final Level level, final String msg, Throwable throwable) {
+    public void log(final Level level, final String msg, final Throwable throwable) {
         if (level == Level.INFO) {
             LOGGER.info(msg, throwable);
         } else if (level == Level.WARNING) {
