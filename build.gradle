@@ -18,5 +18,5 @@ dependencies {
         transitive = false
     }
 
-    includeInJar "me.lucko:spark-common:1.10.172-SNAPSHOT"
+    includeInJar "me.lucko:spark-common:1.10.181-SNAPSHOT"
 }
